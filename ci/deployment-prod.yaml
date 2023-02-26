@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: serdar-react-sampleui-dep
+  namespace: default
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: serdar-react-sampleui
+  template:
+    metadata:
+      labels:
+        app: serdar-react-sampleui
+      annotations:
+        linkerd.io/inject: disabled
+    spec:
+      containers:
+        - name: devnot-workshop-command
+          image: gcr.io/bubbly-yeti-377212/serdar-react-sampleui:2
+          args: []
+      terminationGracePeriodSeconds: 30

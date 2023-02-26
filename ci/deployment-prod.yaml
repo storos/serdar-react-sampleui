@@ -17,6 +17,6 @@ spec:
     spec:
       containers:
         - name: devnot-workshop-command
-          image: gcr.io/bubbly-yeti-377212/serdar-react-sampleui:2
+          image: gcr.io/bubbly-yeti-377212/serdar-react-sampleui:3
           args: []
       terminationGracePeriodSeconds: 30

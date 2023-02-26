@@ -32,6 +32,10 @@ build-tag: ## build the cli as a docker image tag
 build-push: ## build the cli as a docker image tag
 	docker push gcr.io/$(GCP_PROJECT_NAME)/$(CMD_NAME):$(DOCKER_TAG_VERSION)
 
+.PHONY: kube-install
+kube-install: ## install version into select kubernetes context
+	kubectl apply -f ./ci/deployment-prod.yaml
+
 .PHONY: dev-env-start
 dev-env-start: ## build the cli as a docker image
 	docker rm $(CMD_NAME) -f

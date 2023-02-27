@@ -16,7 +16,7 @@ spec:
         linkerd.io/inject: disabled
     spec:
       containers:
-        - name: devnot-workshop-command
+        - name: serdar-react-sampleui
           image: gcr.io/bubbly-yeti-377212/serdar-react-sampleui:3
           args: []
       terminationGracePeriodSeconds: 30

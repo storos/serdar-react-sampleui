@@ -1,0 +1,16 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: serdar-react-sampleui-ing
+spec:
+  rules:
+    - host: microcredit-admin.techpo.net
+      http:
+        paths:
+          - pathType: Prefix
+            path: "/"
+            backend:
+              service:
+                name: serdar-react-sampleui-svc
+                port:
+                  number: 8080

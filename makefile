@@ -21,20 +21,20 @@ run: ## run the cli
 	npm run
 
 .PHONY: build-docker
-build-docker: ## build the cli as a docker image
+docker-build: ## build the cli as a docker image
 	docker build --platform=linux/amd64 -f Dockerfile -t $(CMD_NAME):$(DOCKER_TAG_VERSION) .
 
 .PHONY: build-tag
-build-tag: ## build the cli as a docker image tag
+docker-tag: ## build the cli as a docker image tag
 	docker tag $(CMD_NAME):$(DOCKER_TAG_VERSION) gcr.io/$(GCP_PROJECT_NAME)/$(CMD_NAME):$(DOCKER_TAG_VERSION)
 
 .PHONY: build-push
-build-push: ## build the cli as a docker image tag
+docker-push: ## build the cli as a docker image tag
 	docker push gcr.io/$(GCP_PROJECT_NAME)/$(CMD_NAME):$(DOCKER_TAG_VERSION)
 
 .PHONY: kube-install
 kube-install: ## install version into select kubernetes context
-	kubectl apply -f ./ci/deployment-prod.yaml
+	kubectl apply -f ./deployments/
 
 .PHONY: dev-env-start
 dev-env-start: ## build the cli as a docker image

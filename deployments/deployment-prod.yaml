@@ -4,7 +4,7 @@ metadata:
   name: serdar-react-sampleui-dep
   namespace: default
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: serdar-react-sampleui
